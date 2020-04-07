@@ -11,7 +11,7 @@
 # =============================================================================
 
 # =============================================================================
-# Project: MyAudioPlayer
+# Project: VideoPlayer
 # Configuration: Debug
 # =============================================================================
 
@@ -30,40 +30,41 @@ ninja_required_version = 1.5
 include rules.ninja
 
 # =============================================================================
-# Object build statements for EXECUTABLE target MyAudioPlayer
+# Object build statements for EXECUTABLE target VideoPlayer
 
 
 #############################################
-# Order-only phony target for MyAudioPlayer
+# Order-only phony target for VideoPlayer
 
-build cmake_object_order_depends_target_MyAudioPlayer: phony || CMakeFiles\MyAudioPlayer.dir
+build cmake_object_order_depends_target_VideoPlayer: phony || CMakeFiles\VideoPlayer.dir
 
-build CMakeFiles\MyAudioPlayer.dir\MyAudioPlayer.cpp.obj: CXX_COMPILER__MyAudioPlayer ..\..\..\MyAudioPlayer.cpp || cmake_object_order_depends_target_MyAudioPlayer
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1
-  OBJECT_DIR = CMakeFiles\MyAudioPlayer.dir
-  OBJECT_FILE_DIR = CMakeFiles\MyAudioPlayer.dir
-  TARGET_COMPILE_PDB = CMakeFiles\MyAudioPlayer.dir\
-  TARGET_PDB = MyAudioPlayer.pdb
+build CMakeFiles\VideoPlayer.dir\main.cpp.obj: CXX_COMPILER__VideoPlayer ..\..\..\main.cpp || cmake_object_order_depends_target_VideoPlayer
+  FLAGS = /EHsc /MDd /Zi /Ob0 /Od /RTC1
+  INCLUDES = -I..\..\..\include -ID:\ffmpeg\ffmpeg-20200324-e5d25d1-win64-dev\include -ID:\ffmpeg\SDL2-2.0.12\include -I"D:\Program Files (x86)\OpenAL 1.1 SDK\include"
+  OBJECT_DIR = CMakeFiles\VideoPlayer.dir
+  OBJECT_FILE_DIR = CMakeFiles\VideoPlayer.dir
+  TARGET_COMPILE_PDB = CMakeFiles\VideoPlayer.dir\
+  TARGET_PDB = VideoPlayer.pdb
 
 
 # =============================================================================
-# Link build statements for EXECUTABLE target MyAudioPlayer
+# Link build statements for EXECUTABLE target VideoPlayer
 
 
 #############################################
-# Link the executable MyAudioPlayer.exe
+# Link the executable VideoPlayer.exe
 
-build MyAudioPlayer.exe: CXX_EXECUTABLE_LINKER__MyAudioPlayer CMakeFiles\MyAudioPlayer.dir\MyAudioPlayer.cpp.obj
-  FLAGS = /DWIN32 /D_WINDOWS /W3 /GR /EHsc /MDd /Zi /Ob0 /Od /RTC1
+build VideoPlayer.exe: CXX_EXECUTABLE_LINKER__VideoPlayer CMakeFiles\VideoPlayer.dir\main.cpp.obj | D$:\ffmpeg\ffmpeg-20200324-e5d25d1-win64-dev\lib\avcodec.lib D$:\ffmpeg\ffmpeg-20200324-e5d25d1-win64-dev\lib\avformat.lib D$:\ffmpeg\ffmpeg-20200324-e5d25d1-win64-dev\lib\avutil.lib D$:\ffmpeg\ffmpeg-20200324-e5d25d1-win64-dev\lib\avdevice.lib D$:\ffmpeg\ffmpeg-20200324-e5d25d1-win64-dev\lib\avfilter.lib D$:\ffmpeg\ffmpeg-20200324-e5d25d1-win64-dev\lib\postproc.lib D$:\ffmpeg\ffmpeg-20200324-e5d25d1-win64-dev\lib\swresample.lib D$:\ffmpeg\ffmpeg-20200324-e5d25d1-win64-dev\lib\swscale.lib D$:\ffmpeg\SDL2-2.0.12\lib\x64\SDL2.lib D$:\Program$ Files$ (x86)\OpenAL$ 1.1$ SDK\libs\Win64\OpenAL32.lib
+  FLAGS = /EHsc /MDd /Zi /Ob0 /Od /RTC1
   LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:console
-  LINK_LIBRARIES = kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
-  OBJECT_DIR = CMakeFiles\MyAudioPlayer.dir
+  LINK_LIBRARIES = D:\ffmpeg\ffmpeg-20200324-e5d25d1-win64-dev\lib\avcodec.lib D:\ffmpeg\ffmpeg-20200324-e5d25d1-win64-dev\lib\avformat.lib D:\ffmpeg\ffmpeg-20200324-e5d25d1-win64-dev\lib\avutil.lib D:\ffmpeg\ffmpeg-20200324-e5d25d1-win64-dev\lib\avdevice.lib D:\ffmpeg\ffmpeg-20200324-e5d25d1-win64-dev\lib\avfilter.lib D:\ffmpeg\ffmpeg-20200324-e5d25d1-win64-dev\lib\postproc.lib D:\ffmpeg\ffmpeg-20200324-e5d25d1-win64-dev\lib\swresample.lib D:\ffmpeg\ffmpeg-20200324-e5d25d1-win64-dev\lib\swscale.lib D:\ffmpeg\SDL2-2.0.12\lib\x64\SDL2.lib "D:\Program Files (x86)\OpenAL 1.1 SDK\libs\Win64\OpenAL32.lib" kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
+  OBJECT_DIR = CMakeFiles\VideoPlayer.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
-  TARGET_COMPILE_PDB = CMakeFiles\MyAudioPlayer.dir\
-  TARGET_FILE = MyAudioPlayer.exe
-  TARGET_IMPLIB = MyAudioPlayer.lib
-  TARGET_PDB = MyAudioPlayer.pdb
+  TARGET_COMPILE_PDB = CMakeFiles\VideoPlayer.dir\
+  TARGET_FILE = VideoPlayer.exe
+  TARGET_IMPLIB = VideoPlayer.lib
+  TARGET_PDB = VideoPlayer.pdb
 
 
 #############################################
@@ -91,7 +92,7 @@ build rebuild_cache: phony CMakeFiles\rebuild_cache.util
 # =============================================================================
 # Target aliases.
 
-build MyAudioPlayer: phony MyAudioPlayer.exe
+build VideoPlayer: phony VideoPlayer.exe
 
 # =============================================================================
 # Folder targets.
@@ -103,7 +104,7 @@ build MyAudioPlayer: phony MyAudioPlayer.exe
 #############################################
 # The main all target.
 
-build all: phony MyAudioPlayer.exe
+build all: phony VideoPlayer.exe
 
 
 #############################################

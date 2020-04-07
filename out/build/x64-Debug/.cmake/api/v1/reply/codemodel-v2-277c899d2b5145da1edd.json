@@ -26,7 +26,7 @@
 					[
 						0
 					],
-					"name" : "MyAudioPlayer",
+					"name" : "VideoPlayer",
 					"targetIndexes" : 
 					[
 						0
@@ -37,9 +37,9 @@
 			[
 				{
 					"directoryIndex" : 0,
-					"id" : "MyAudioPlayer::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-MyAudioPlayer-Debug-3a9d936ffb800cc71973.json",
-					"name" : "MyAudioPlayer",
+					"id" : "VideoPlayer::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-VideoPlayer-Debug-caa47d57d056ff08ed93.json",
+					"name" : "VideoPlayer",
 					"projectIndex" : 0
 				}
 			]

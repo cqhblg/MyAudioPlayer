@@ -14,6 +14,36 @@
 # EXTERNAL cache entries
 ########################
 
+//Path to a file.
+AVCODEC_INCLUDE_DIR:PATH=D:/ffmpeg/ffmpeg-20200324-e5d25d1-win64-dev/include
+
+//Path to a library.
+AVCODEC_LIBRARY:FILEPATH=D:/ffmpeg/ffmpeg-20200324-e5d25d1-win64-dev/lib/avcodec.lib
+
+//Path to a file.
+AVDEVICE_INCLUDE_DIR:PATH=D:/ffmpeg/ffmpeg-20200324-e5d25d1-win64-dev/include
+
+//Path to a library.
+AVDEVICE_LIBRARY:FILEPATH=D:/ffmpeg/ffmpeg-20200324-e5d25d1-win64-dev/lib/avdevice.lib
+
+//Path to a file.
+AVFILTER_INCLUDE_DIR:PATH=D:/ffmpeg/ffmpeg-20200324-e5d25d1-win64-dev/include
+
+//Path to a library.
+AVFILTER_LIBRARY:FILEPATH=D:/ffmpeg/ffmpeg-20200324-e5d25d1-win64-dev/lib/avfilter.lib
+
+//Path to a file.
+AVFORMAT_INCLUDE_DIR:PATH=D:/ffmpeg/ffmpeg-20200324-e5d25d1-win64-dev/include
+
+//Path to a library.
+AVFORMAT_LIBRARY:FILEPATH=D:/ffmpeg/ffmpeg-20200324-e5d25d1-win64-dev/lib/avformat.lib
+
+//Path to a file.
+AVUTIL_INCLUDE_DIR:PATH=D:/ffmpeg/ffmpeg-20200324-e5d25d1-win64-dev/include
+
+//Path to a library.
+AVUTIL_LIBRARY:FILEPATH=D:/ffmpeg/ffmpeg-20200324-e5d25d1-win64-dev/lib/avutil.lib
+
 //Choose the type of build, options are: None Debug Release RelWithDebInfo
 // MinSizeRel ...
 CMAKE_BUILD_TYPE:STRING=Debug
@@ -117,7 +147,22 @@ CMAKE_PROJECT_DESCRIPTION:STATIC=
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=MyAudioPlayer
+CMAKE_PROJECT_NAME:STATIC=VideoPlayer
+
+//Value Computed by CMake
+CMAKE_PROJECT_VERSION:STATIC=0.2.0
+
+//Value Computed by CMake
+CMAKE_PROJECT_VERSION_MAJOR:STATIC=0
+
+//Value Computed by CMake
+CMAKE_PROJECT_VERSION_MINOR:STATIC=2
+
+//Value Computed by CMake
+CMAKE_PROJECT_VERSION_PATCH:STATIC=0
+
+//Value Computed by CMake
+CMAKE_PROJECT_VERSION_TWEAK:STATIC=
 
 //RC compiler
 CMAKE_RC_COMPILER:FILEPATH=C:/Program Files (x86)/Windows Kits/10/bin/10.0.18362.0/x64/rc.exe
@@ -195,6 +240,30 @@ MyAudioPlayer_BINARY_DIR:STATIC=D:/c++workspace/MyAudioPlayer/out/build/x64-Debu
 
 //Value Computed by CMake
 MyAudioPlayer_SOURCE_DIR:STATIC=D:/c++workspace/MyAudioPlayer
+
+//Path to a file.
+POSTPROC_INCLUDE_DIR:PATH=D:/ffmpeg/ffmpeg-20200324-e5d25d1-win64-dev/include
+
+//Path to a library.
+POSTPROC_LIBRARY:FILEPATH=D:/ffmpeg/ffmpeg-20200324-e5d25d1-win64-dev/lib/postproc.lib
+
+//Path to a file.
+SWRESAMPLE_INCLUDE_DIR:PATH=D:/ffmpeg/ffmpeg-20200324-e5d25d1-win64-dev/include
+
+//Path to a library.
+SWRESAMPLE_LIBRARY:FILEPATH=D:/ffmpeg/ffmpeg-20200324-e5d25d1-win64-dev/lib/swresample.lib
+
+//Path to a file.
+SWSCALE_INCLUDE_DIR:PATH=D:/ffmpeg/ffmpeg-20200324-e5d25d1-win64-dev/include
+
+//Path to a library.
+SWSCALE_LIBRARY:FILEPATH=D:/ffmpeg/ffmpeg-20200324-e5d25d1-win64-dev/lib/swscale.lib
+
+//Value Computed by CMake
+VideoPlayer_BINARY_DIR:STATIC=D:/c++workspace/MyAudioPlayer/out/build/x64-Debug
+
+//Value Computed by CMake
+VideoPlayer_SOURCE_DIR:STATIC=D:/c++workspace/MyAudioPlayer
 
 
 ########################

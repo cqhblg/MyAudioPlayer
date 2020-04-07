@@ -2,6 +2,126 @@
 	"entries" : 
 	[
 		{
+			"name" : "AVCODEC_INCLUDE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Path to a file."
+				}
+			],
+			"type" : "PATH",
+			"value" : "D:/ffmpeg/ffmpeg-20200324-e5d25d1-win64-dev/include"
+		},
+		{
+			"name" : "AVCODEC_LIBRARY",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Path to a library."
+				}
+			],
+			"type" : "FILEPATH",
+			"value" : "D:/ffmpeg/ffmpeg-20200324-e5d25d1-win64-dev/lib/avcodec.lib"
+		},
+		{
+			"name" : "AVDEVICE_INCLUDE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Path to a file."
+				}
+			],
+			"type" : "PATH",
+			"value" : "D:/ffmpeg/ffmpeg-20200324-e5d25d1-win64-dev/include"
+		},
+		{
+			"name" : "AVDEVICE_LIBRARY",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Path to a library."
+				}
+			],
+			"type" : "FILEPATH",
+			"value" : "D:/ffmpeg/ffmpeg-20200324-e5d25d1-win64-dev/lib/avdevice.lib"
+		},
+		{
+			"name" : "AVFILTER_INCLUDE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Path to a file."
+				}
+			],
+			"type" : "PATH",
+			"value" : "D:/ffmpeg/ffmpeg-20200324-e5d25d1-win64-dev/include"
+		},
+		{
+			"name" : "AVFILTER_LIBRARY",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Path to a library."
+				}
+			],
+			"type" : "FILEPATH",
+			"value" : "D:/ffmpeg/ffmpeg-20200324-e5d25d1-win64-dev/lib/avfilter.lib"
+		},
+		{
+			"name" : "AVFORMAT_INCLUDE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Path to a file."
+				}
+			],
+			"type" : "PATH",
+			"value" : "D:/ffmpeg/ffmpeg-20200324-e5d25d1-win64-dev/include"
+		},
+		{
+			"name" : "AVFORMAT_LIBRARY",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Path to a library."
+				}
+			],
+			"type" : "FILEPATH",
+			"value" : "D:/ffmpeg/ffmpeg-20200324-e5d25d1-win64-dev/lib/avformat.lib"
+		},
+		{
+			"name" : "AVUTIL_INCLUDE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Path to a file."
+				}
+			],
+			"type" : "PATH",
+			"value" : "D:/ffmpeg/ffmpeg-20200324-e5d25d1-win64-dev/include"
+		},
+		{
+			"name" : "AVUTIL_LIBRARY",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Path to a library."
+				}
+			],
+			"type" : "FILEPATH",
+			"value" : "D:/ffmpeg/ffmpeg-20200324-e5d25d1-win64-dev/lib/avutil.lib"
+		},
+		{
 			"name" : "CMAKE_BUILD_TYPE",
 			"properties" : 
 			[
@@ -695,7 +815,67 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "MyAudioPlayer"
+			"value" : "VideoPlayer"
+		},
+		{
+			"name" : "CMAKE_PROJECT_VERSION",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "0.2.0"
+		},
+		{
+			"name" : "CMAKE_PROJECT_VERSION_MAJOR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "0"
+		},
+		{
+			"name" : "CMAKE_PROJECT_VERSION_MINOR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "2"
+		},
+		{
+			"name" : "CMAKE_PROJECT_VERSION_PATCH",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "0"
+		},
+		{
+			"name" : "CMAKE_PROJECT_VERSION_TWEAK",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : ""
 		},
 		{
 			"name" : "CMAKE_RC_COMPILER",
@@ -1039,6 +1219,102 @@
 		},
 		{
 			"name" : "MyAudioPlayer_SOURCE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "D:/c++workspace/MyAudioPlayer"
+		},
+		{
+			"name" : "POSTPROC_INCLUDE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Path to a file."
+				}
+			],
+			"type" : "PATH",
+			"value" : "D:/ffmpeg/ffmpeg-20200324-e5d25d1-win64-dev/include"
+		},
+		{
+			"name" : "POSTPROC_LIBRARY",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Path to a library."
+				}
+			],
+			"type" : "FILEPATH",
+			"value" : "D:/ffmpeg/ffmpeg-20200324-e5d25d1-win64-dev/lib/postproc.lib"
+		},
+		{
+			"name" : "SWRESAMPLE_INCLUDE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Path to a file."
+				}
+			],
+			"type" : "PATH",
+			"value" : "D:/ffmpeg/ffmpeg-20200324-e5d25d1-win64-dev/include"
+		},
+		{
+			"name" : "SWRESAMPLE_LIBRARY",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Path to a library."
+				}
+			],
+			"type" : "FILEPATH",
+			"value" : "D:/ffmpeg/ffmpeg-20200324-e5d25d1-win64-dev/lib/swresample.lib"
+		},
+		{
+			"name" : "SWSCALE_INCLUDE_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Path to a file."
+				}
+			],
+			"type" : "PATH",
+			"value" : "D:/ffmpeg/ffmpeg-20200324-e5d25d1-win64-dev/include"
+		},
+		{
+			"name" : "SWSCALE_LIBRARY",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Path to a library."
+				}
+			],
+			"type" : "FILEPATH",
+			"value" : "D:/ffmpeg/ffmpeg-20200324-e5d25d1-win64-dev/lib/swscale.lib"
+		},
+		{
+			"name" : "VideoPlayer_BINARY_DIR",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Value Computed by CMake"
+				}
+			],
+			"type" : "STATIC",
+			"value" : "D:/c++workspace/MyAudioPlayer/out/build/x64-Debug"
+		},
+		{
+			"name" : "VideoPlayer_SOURCE_DIR",
 			"properties" : 
 			[
 				{

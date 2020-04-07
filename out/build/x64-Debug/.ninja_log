@@ -1,3 +1,5 @@
 # ninja log v5
 0	451	607925920	CMakeFiles/MyAudioPlayer.dir/MyAudioPlayer.cpp.obj	d76423555ecde6ed
 452	710	607925920	MyAudioPlayer.exe	33ff83c11bae81da
+1	588	607926263	CMakeFiles/VideoPlayer.dir/main.cpp.obj	8b47b73270eb386
+600	893	607926263	VideoPlayer.exe	bdc53c88853c065

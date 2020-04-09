@@ -44,6 +44,12 @@ AVUTIL_INCLUDE_DIR:PATH=D:/ffmpeg/ffmpeg-20200324-e5d25d1-win64-dev/include
 //Path to a library.
 AVUTIL_LIBRARY:FILEPATH=D:/ffmpeg/ffmpeg-20200324-e5d25d1-win64-dev/lib/avutil.lib
 
+//Value Computed by CMake
+AudioPlayer_BINARY_DIR:STATIC=D:/c++workspace/MyAudioPlayer/out/build/x64-Debug
+
+//Value Computed by CMake
+AudioPlayer_SOURCE_DIR:STATIC=D:/c++workspace/MyAudioPlayer
+
 //Choose the type of build, options are: None Debug Release RelWithDebInfo
 // MinSizeRel ...
 CMAKE_BUILD_TYPE:STRING=Debug
@@ -147,7 +153,7 @@ CMAKE_PROJECT_DESCRIPTION:STATIC=
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=VideoPlayer
+CMAKE_PROJECT_NAME:STATIC=AudioPlayer
 
 //Value Computed by CMake
 CMAKE_PROJECT_VERSION:STATIC=0.2.0

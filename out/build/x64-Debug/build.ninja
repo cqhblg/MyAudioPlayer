@@ -11,7 +11,7 @@
 # =============================================================================
 
 # =============================================================================
-# Project: VideoPlayer
+# Project: AudioPlayer
 # Configuration: Debug
 # =============================================================================
 
@@ -30,41 +30,41 @@ ninja_required_version = 1.5
 include rules.ninja
 
 # =============================================================================
-# Object build statements for EXECUTABLE target VideoPlayer
+# Object build statements for EXECUTABLE target AudioPlayer
 
 
 #############################################
-# Order-only phony target for VideoPlayer
+# Order-only phony target for AudioPlayer
 
-build cmake_object_order_depends_target_VideoPlayer: phony || CMakeFiles\VideoPlayer.dir
+build cmake_object_order_depends_target_AudioPlayer: phony || CMakeFiles\AudioPlayer.dir
 
-build CMakeFiles\VideoPlayer.dir\main.cpp.obj: CXX_COMPILER__VideoPlayer ..\..\..\main.cpp || cmake_object_order_depends_target_VideoPlayer
+build CMakeFiles\AudioPlayer.dir\main.cpp.obj: CXX_COMPILER__AudioPlayer ..\..\..\main.cpp || cmake_object_order_depends_target_AudioPlayer
   FLAGS = /EHsc /MDd /Zi /Ob0 /Od /RTC1
   INCLUDES = -I..\..\..\include -ID:\ffmpeg\ffmpeg-20200324-e5d25d1-win64-dev\include -ID:\ffmpeg\SDL2-2.0.12\include -I"D:\Program Files (x86)\OpenAL 1.1 SDK\include"
-  OBJECT_DIR = CMakeFiles\VideoPlayer.dir
-  OBJECT_FILE_DIR = CMakeFiles\VideoPlayer.dir
-  TARGET_COMPILE_PDB = CMakeFiles\VideoPlayer.dir\
-  TARGET_PDB = VideoPlayer.pdb
+  OBJECT_DIR = CMakeFiles\AudioPlayer.dir
+  OBJECT_FILE_DIR = CMakeFiles\AudioPlayer.dir
+  TARGET_COMPILE_PDB = CMakeFiles\AudioPlayer.dir\
+  TARGET_PDB = AudioPlayer.pdb
 
 
 # =============================================================================
-# Link build statements for EXECUTABLE target VideoPlayer
+# Link build statements for EXECUTABLE target AudioPlayer
 
 
 #############################################
-# Link the executable VideoPlayer.exe
+# Link the executable AudioPlayer.exe
 
-build VideoPlayer.exe: CXX_EXECUTABLE_LINKER__VideoPlayer CMakeFiles\VideoPlayer.dir\main.cpp.obj | D$:\ffmpeg\ffmpeg-20200324-e5d25d1-win64-dev\lib\avcodec.lib D$:\ffmpeg\ffmpeg-20200324-e5d25d1-win64-dev\lib\avformat.lib D$:\ffmpeg\ffmpeg-20200324-e5d25d1-win64-dev\lib\avutil.lib D$:\ffmpeg\ffmpeg-20200324-e5d25d1-win64-dev\lib\avdevice.lib D$:\ffmpeg\ffmpeg-20200324-e5d25d1-win64-dev\lib\avfilter.lib D$:\ffmpeg\ffmpeg-20200324-e5d25d1-win64-dev\lib\postproc.lib D$:\ffmpeg\ffmpeg-20200324-e5d25d1-win64-dev\lib\swresample.lib D$:\ffmpeg\ffmpeg-20200324-e5d25d1-win64-dev\lib\swscale.lib D$:\ffmpeg\SDL2-2.0.12\lib\x64\SDL2.lib D$:\Program$ Files$ (x86)\OpenAL$ 1.1$ SDK\libs\Win64\OpenAL32.lib
+build AudioPlayer.exe: CXX_EXECUTABLE_LINKER__AudioPlayer CMakeFiles\AudioPlayer.dir\main.cpp.obj | D$:\ffmpeg\ffmpeg-20200324-e5d25d1-win64-dev\lib\avcodec.lib D$:\ffmpeg\ffmpeg-20200324-e5d25d1-win64-dev\lib\avformat.lib D$:\ffmpeg\ffmpeg-20200324-e5d25d1-win64-dev\lib\avutil.lib D$:\ffmpeg\ffmpeg-20200324-e5d25d1-win64-dev\lib\avdevice.lib D$:\ffmpeg\ffmpeg-20200324-e5d25d1-win64-dev\lib\avfilter.lib D$:\ffmpeg\ffmpeg-20200324-e5d25d1-win64-dev\lib\postproc.lib D$:\ffmpeg\ffmpeg-20200324-e5d25d1-win64-dev\lib\swresample.lib D$:\ffmpeg\ffmpeg-20200324-e5d25d1-win64-dev\lib\swscale.lib D$:\ffmpeg\SDL2-2.0.12\lib\x64\SDL2.lib D$:\Program$ Files$ (x86)\OpenAL$ 1.1$ SDK\libs\Win64\OpenAL32.lib
   FLAGS = /EHsc /MDd /Zi /Ob0 /Od /RTC1
   LINK_FLAGS = /machine:x64 /debug /INCREMENTAL /subsystem:console
   LINK_LIBRARIES = D:\ffmpeg\ffmpeg-20200324-e5d25d1-win64-dev\lib\avcodec.lib D:\ffmpeg\ffmpeg-20200324-e5d25d1-win64-dev\lib\avformat.lib D:\ffmpeg\ffmpeg-20200324-e5d25d1-win64-dev\lib\avutil.lib D:\ffmpeg\ffmpeg-20200324-e5d25d1-win64-dev\lib\avdevice.lib D:\ffmpeg\ffmpeg-20200324-e5d25d1-win64-dev\lib\avfilter.lib D:\ffmpeg\ffmpeg-20200324-e5d25d1-win64-dev\lib\postproc.lib D:\ffmpeg\ffmpeg-20200324-e5d25d1-win64-dev\lib\swresample.lib D:\ffmpeg\ffmpeg-20200324-e5d25d1-win64-dev\lib\swscale.lib D:\ffmpeg\SDL2-2.0.12\lib\x64\SDL2.lib "D:\Program Files (x86)\OpenAL 1.1 SDK\libs\Win64\OpenAL32.lib" kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib
-  OBJECT_DIR = CMakeFiles\VideoPlayer.dir
+  OBJECT_DIR = CMakeFiles\AudioPlayer.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
-  TARGET_COMPILE_PDB = CMakeFiles\VideoPlayer.dir\
-  TARGET_FILE = VideoPlayer.exe
-  TARGET_IMPLIB = VideoPlayer.lib
-  TARGET_PDB = VideoPlayer.pdb
+  TARGET_COMPILE_PDB = CMakeFiles\AudioPlayer.dir\
+  TARGET_FILE = AudioPlayer.exe
+  TARGET_IMPLIB = AudioPlayer.lib
+  TARGET_PDB = AudioPlayer.pdb
 
 
 #############################################
@@ -92,7 +92,7 @@ build rebuild_cache: phony CMakeFiles\rebuild_cache.util
 # =============================================================================
 # Target aliases.
 
-build VideoPlayer: phony VideoPlayer.exe
+build AudioPlayer: phony AudioPlayer.exe
 
 # =============================================================================
 # Folder targets.
@@ -104,7 +104,7 @@ build VideoPlayer: phony VideoPlayer.exe
 #############################################
 # The main all target.
 
-build all: phony VideoPlayer.exe
+build all: phony AudioPlayer.exe
 
 
 #############################################

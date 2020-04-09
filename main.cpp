@@ -44,8 +44,7 @@ struct UserData {
 };
 
 //用于申请数据的存储空间
-int allocDataBuf(AudioInfo in, AudioInfo out, uint8_t** outData,
-                 int inputSamples) {
+int allocDataBuf(AudioInfo in, AudioInfo out, uint8_t** outData, int inputSamples) {
   int bytePerOutSample = -1;
   switch (out.format) {
     case AV_SAMPLE_FMT_U8:
@@ -74,11 +73,9 @@ int allocDataBuf(AudioInfo in, AudioInfo out, uint8_t** outData,
 
   int guessOutSamplesPerChannel =
       av_rescale_rnd(inputSamples, out.sampleRate, in.sampleRate, AV_ROUND_UP);
-  int guessOutSize =
-      guessOutSamplesPerChannel * out.channels * bytePerOutSample;
+  int guessOutSize = guessOutSamplesPerChannel * out.channels * bytePerOutSample;
 
-  std::cout << "GuessOutSamplesPerChannel: " << guessOutSamplesPerChannel
-            << std::endl;
+  std::cout << "GuessOutSamplesPerChannel: " << guessOutSamplesPerChannel << std::endl;
   std::cout << "GuessOutSize: " << guessOutSize << std::endl;
 
   guessOutSize *= 1.2;  // just make sure.
@@ -90,29 +87,24 @@ int allocDataBuf(AudioInfo in, AudioInfo out, uint8_t** outData,
 }
 
 //将ffmpeg抓取到的音频frame存储至databuffer中
-tuple<int, int> reSample(AudioInfo in, AudioInfo out, uint8_t* dataBuffer,
-                         int dataBufferSize, const AVFrame* frame) {
-  SwrContext* swr =
-      swr_alloc_set_opts(nullptr, out.layout, out.format, out.sampleRate,
-                         in.layout, in.format, in.sampleRate, 0, nullptr);
-  cout << out.layout << "," << out.format << "," << out.sampleRate << ","
-       << in.layout << "," << in.format << "," << in.sampleRate << endl;
+tuple<int, int> reSample(AudioInfo in, AudioInfo out, uint8_t* dataBuffer, int dataBufferSize,
+                         const AVFrame* frame) {
+  SwrContext* swr = swr_alloc_set_opts(nullptr, out.layout, out.format, out.sampleRate,
+                                       in.layout, in.format, in.sampleRate, 0, nullptr);
+  cout << out.layout << "," << out.format << "," << out.sampleRate << "," << in.layout << ","
+       << in.format << "," << in.sampleRate << endl;
   if (swr_init(swr)) {
     cout << "swr_init error." << endl;
     throw std::runtime_error("swr_init error.");
   }
-  int outSamples =
-      swr_convert(swr, &dataBuffer, dataBufferSize,
-                  (const uint8_t**)&frame->data[0], frame->nb_samples);
+  int outSamples = swr_convert(swr, &dataBuffer, dataBufferSize,
+                               (const uint8_t**)&frame->data[0], frame->nb_samples);
   cout << "reSample: nb_samples=" << frame->nb_samples
-       << ", sample_rate = " << frame->sample_rate
-       << ", outSamples=" << outSamples << endl;
+       << ", sample_rate = " << frame->sample_rate << ", outSamples=" << outSamples << endl;
   if (outSamples <= 0) {
     throw std::runtime_error("error: outSamples=" + outSamples);
   }
-
-  int outDataSize =
-      av_samples_get_buffer_size(NULL, out.channels, outSamples, out.format, 1);
+  int outDataSize = av_samples_get_buffer_size(NULL, out.channels, outSamples, out.format, 1);
 
   if (outDataSize <= 0) {
     throw std::runtime_error("error: outDataSize=" + outDataSize);
@@ -124,33 +116,40 @@ void audio_callback(void* userdata, Uint8* stream, int len) {
   UserData* udata = (UserData*)userdata;
 
   static AVFrame* aframe = av_frame_alloc();  //存储音频帧;
-  static AVPacket packet;
-  av_init_packet(&packet);
+  static AVPacket* packet = av_packet_alloc();
+  av_init_packet(packet);
   AVFormatContext* pFormatCtx = udata->pFormatCtx;
   AVCodecContext* pCodecCtx = udata->pCodecCtx;
-  while (1) {
-    //只读取音频帧
-    if (av_read_frame(pFormatCtx, &packet) < 0) {
-      cout << "can't read packet" << endl;
-      throw std::runtime_error("can't read packet");
+  while (true) {
+    while (1) {
+      //只读取音频帧
+      if (av_read_frame(pFormatCtx, packet) < 0) {
+        cout << "can't read packet" << endl;
+        throw std::runtime_error("can't read packet");
+      }
+      if (packet->stream_index == audioIndex) break;
     }
-    if (packet.stream_index == audioIndex) break;
+    if (avcodec_send_packet(pCodecCtx, packet) < 0) {
+      cout << "send packet error" << endl;
+      throw std::runtime_error("can't send packet");
+    }
+    int ret = avcodec_receive_frame(pCodecCtx, aframe);
+    if (ret >= 0) {
+      break;
+    } else if (ret == AVERROR(EAGAIN)) {
+      continue;
+    } else {
+      cout << "can't get frame" << endl;
+      throw std::runtime_error("can't get frame");
+    }
   }
-  if (avcodec_send_packet(pCodecCtx, &packet) < 0) {
-    cout << "send packet error" << endl;
-    throw std::runtime_error("can't send packet");
-  }
-  if (avcodec_receive_frame(pCodecCtx, aframe) < 0) {
-    cout << "can't get frame" << endl;
-    throw std::runtime_error("can't get frame");
-  }
+
   cout << "frame " << aframe->nb_samples << " get" << endl;
   static uint8_t* outBuffer = nullptr;
   static int outBufferSize = 0;
 
   if (outBuffer == nullptr) {
-    outBufferSize =
-        allocDataBuf(udata->inn, udata->outt, &outBuffer, aframe->nb_samples);
+    outBufferSize = allocDataBuf(udata->inn, udata->outt, &outBuffer, aframe->nb_samples);
     cout << " --------- audio samples: " << aframe->nb_samples << endl;
   } else {
     memset(outBuffer, 0, outBufferSize);
@@ -162,8 +161,7 @@ void audio_callback(void* userdata, Uint8* stream, int len) {
       reSample(udata->inn, udata->outt, outBuffer, outBufferSize, aframe);
 
   if (outDataSize != len) {
-    cout << "WARNING: outDataSize[" << outDataSize << "] != len[" << len << "]"
-         << endl;
+    cout << "WARNING: outDataSize[" << outDataSize << "] != len[" << len << "]" << endl;
   }
 
   std::memcpy(stream, outBuffer, outDataSize);
@@ -177,7 +175,7 @@ int main() {
   uint8_t* out_buffer;
 
   //输入文件路径
-  char filepath[] = "D:/c++workspace/VideoPlayer/Titanic.ts";
+  char filepath[] = "D:/迅雷下载/恐怖游轮_BD中英双字.mp4";
 
   int frame_cnt;
 
@@ -185,8 +183,7 @@ int main() {
   pFormatCtx = avformat_alloc_context();  //封装格式上下文结构体
 
   // start init AVCodecContext
-  if (avformat_open_input(&pFormatCtx, filepath, NULL, NULL) !=
-      0) {  //打开输入视频文件
+  if (avformat_open_input(&pFormatCtx, filepath, NULL, NULL) != 0) {  //打开输入视频文件
     printf("Couldn't open input stream.\n");
     return -1;
   }
@@ -216,6 +213,10 @@ int main() {
     printf("Could not allocate video codec context\n");
     return -1;
   }
+  if (avcodec_parameters_to_context(pCodecCtx, parser) != 0) {
+    cout << "Could not copy codec context" << endl;
+    return -1;
+  }
   if (avcodec_open2(pCodecCtx, pCodec, NULL) < 0) {  //打开解码器
     printf("Could not open codec.\n");
     return -1;
@@ -235,8 +236,7 @@ int main() {
   udata.pCodecCtx = pCodecCtx;
   udata.pFormatCtx = pFormatCtx;
   udata.inn = AudioInfo(inLayout, inSampleRate, inChannels, inFormate);
-  udata.outt =
-      AudioInfo(AV_CH_LAYOUT_STEREO, inSampleRate, 2, AV_SAMPLE_FMT_S16);
+  udata.outt = AudioInfo(AV_CH_LAYOUT_STEREO, inSampleRate, 2, AV_SAMPLE_FMT_S16);
 
   wanted_spec.freq = parser->sample_rate;
   wanted_spec.format = AUDIO_S16SYS;

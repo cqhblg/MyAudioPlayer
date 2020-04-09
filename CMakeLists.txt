@@ -3,7 +3,7 @@
 #
 cmake_minimum_required (VERSION 3.8)
 
-project ("VideoPlayer" VERSION 0.2.0)
+project ("AudioPlayer" VERSION 0.2.0)
 
 # --------------------------------------------------------------------------
 # specify the C++ standard
